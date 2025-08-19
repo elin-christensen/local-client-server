@@ -13,9 +13,7 @@ public class ToUppercaseServer extends Thread {
                  BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                  BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))) {
 
-                //System.out.println("Client connected: " + socket.getInetAddress());
-
-                // Delegate the input loop to a separate method
+            
                 handleClientInput(reader, writer);
 
             }
@@ -35,7 +33,7 @@ public class ToUppercaseServer extends Thread {
 
             System.out.println("Received: " + line);
             writer.write(line.toUpperCase());
-            writer.newLine(); // ensure complete line
+            writer.newLine(); 
             writer.flush();
         }
     }
